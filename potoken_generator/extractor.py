@@ -104,7 +104,8 @@ class PotokenExtractor:
                 browser = await nodriver.start(headless=False,
                                                browser_executable_path=self.browser_path,
                                                user_data_dir=self.profile_path,
-                                               sandbox=False)
+                                               sandbox=False,
+                                               browser_args=['--no-sandbox', '--disable-setuid-sandbox'])
             except FileNotFoundError as e:
                 msg = "could not find Chromium. Make sure it's installed or provide direct path to the executable"
                 raise FileNotFoundError(msg) from e
